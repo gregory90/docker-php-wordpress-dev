@@ -1,9 +1,6 @@
-FROM gregory90/php:5.6
+FROM gregory90/php-wordpress:5.6
 
-RUN mkdir -p /data/app/cache && mkdir -p /data/app/logs && \
-    chown -R www-data:www-data /data/app
-
-ADD web/app.php /code/web/app.php
-ADD default /etc/nginx/sites-available/default
-ADD default /etc/nginx/sites-enabled/default
+#RUN apt-get update && apt-get install -y php5-xdebug
+ADD php.ini /etc/php5/fpm/php.ini
+ADD php.ini /etc/php5/cli/php.ini
 
